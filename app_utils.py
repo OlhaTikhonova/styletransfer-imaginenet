@@ -1,6 +1,5 @@
 import PIL
-import collections
-import matplotlib
+from collections.abc import Sequence
 import matplotlib.pyplot as plt
 import torch
 from torchvision import transforms
@@ -45,7 +44,7 @@ def load_image(path, size=None, cap=None, remove_alpha_channel=True):
 
   
   if size is not None:
-  	size = size if isinstance(size, collections.Sequence) else (size, size)
+  	size = size if isinstance(size, Sequence) else (size, size)
   	assert len(size) == 2, "'size' must either be a scalar or contain 2 items"
   	image = transforms.Resize(size)(image)
   
